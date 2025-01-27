@@ -19,6 +19,12 @@ int main()
    cout << "Welcome to the " << name << " Apple Farm." << endl;
    cout << "We have " << num_apples << " in stock." << endl;
    cout << "The price per apple is $" << price_each << endl;
-   cout << endl;
+   
+   // calculations
+   double total_cost = num_apples * price_each;
+
+   //print answer
+   cout << "The total for all " << num_apples << " is $" << total_cost << endl;
+   
    return 0;
 }
