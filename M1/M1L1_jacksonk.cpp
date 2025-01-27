@@ -1,7 +1,9 @@
 /* CSC134
-Hello world
+M1Lab1 - Apple sales
 Katherine Jackson
-01/27/25 */
+01/27/25 
+We're selling apples
+*/
 
 #include <iostream>
   
@@ -9,9 +11,14 @@ using namespace std;
   
 int main()
 {
-   cout << "Hello" << endl;
-   cout << "I love all things space and science related." << endl;
-   cout << "I love listening to and making music." << endl;
-   cout << "I also love traveling and learning about other cultures and historic events." << endl;
+    // declaring variables
+    string name = "Jackson";
+    int num_apples = 100;
+    double price_each = 0.25;
+
+   cout << "Welcome to the " << name << " apple farm." << endl;
+   cout << "We have " << num_apples << " in stock." << endl;
+   cout << "The price per apple is $ " << price_each << endl;
+   cout << endl;
    return 0;
 }
