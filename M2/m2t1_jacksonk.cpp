@@ -13,20 +13,37 @@ using namespace std;
 int main()
 {
     // declaring variables
-    string name = "Jackson";
+    string farm_name = "Jackson";
     int num_apples = 100;
     double price_each = 0.25;
+    //new variables for this version
+    string customer_name;
+    int apples_to_buy;
 
-   cout << "Welcome to the " << name << " Apple Farm." << endl;
-   cout << "We have " << num_apples << " in stock." << endl;
+   //welcome message
+   cout << "Hello, what's your name? ";
+   cin >> customer_name;
+   cout << "Nice to meet you, " << customer_name << "!" << endl;
+
+   cout << "Welcome to the " << farm_name << " Apple Farm." << endl;
+   cout << endl;
+   cout << "We have " << num_apples << " apples in stock." << endl;
    cout << "The price per apple is $" << price_each << endl;
-   
+   cout << endl;
+
    // calculations
    double total_cost = num_apples * price_each;
 
    //print answer
    cout <<fixed << setprecision(2); //makes cout print 25.00 instead of 25
    cout << "The total for all " << num_apples << " is $" << total_cost << endl;
+   cout << endl;
+
+   //transaction
+   cout << "How many apples do you want to buy? ";
+   cin >> apples_to_buy;
+   double customer_cost = apples_to_buy * price_each;
+   cout << "For " << apples_to_buy << " apples your total cost is $" << customer_cost << endl;
    
    return 0;
 }
