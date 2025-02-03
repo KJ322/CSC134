@@ -35,10 +35,14 @@ int main()
 
    //relaying order
    cout << "You ordered " << number_ordered << " " << food_name << " and it is $" << subtotal << endl;
+   cout << endl;
 
    //prit receipt
+   cout << food_name << " x " << number_ordered << endl;
+   cout << "-------------------------------------" << endl;
    cout << "Subtotal: $" << setw(10) << subtotal << endl; //setw(x) makes every line x characters; lines them up on the left 
    cout << "Tax (8%): $" << setw(10) << tax_cost << endl;
+   cout << "-------------------------------------" << endl;
    cout << "Total:    $" << setw(10) << total << endl;
    cout << endl;
    cout << "Have a nice day!" << endl;
