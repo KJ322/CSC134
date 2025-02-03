@@ -12,22 +12,29 @@ int main()
 {
    //variables
    string store_name = "Kit's BBQ";
-   string food_name = "rack of ribs";
+   string food_name = "rack(s) of ribs";
    double food_price = 9.99;
    double subtotal, total;
    double tax_percent, tax_cost;
+   int number_ordered;
 
    //take the order
    cout << setprecision(2) << fixed;
    cout << "Welcome to " << store_name << "!" << endl;
-   cout << "You ordered one " << food_name << " and it's $" << food_price << endl;
+   cout << "One " << food_name << " is " << food_price << endl;
+   cout << "How many racks of ribs do you want to order? ";
+   cin >> number_ordered;
    cout << endl;
 
    //calculations
+   
    tax_percent = 0.08;
-   subtotal = food_price;
+   subtotal = food_price * number_ordered;
    tax_cost = subtotal * tax_percent;
    total = subtotal + tax_cost;
+
+   //relaying order
+   cout << "You ordered " << number_ordered << " " << food_name << " and it's $" << subtotal << endl;
 
    //prit receipt
    cout << "Subtotal: $" << subtotal << endl;
