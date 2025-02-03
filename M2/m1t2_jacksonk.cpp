@@ -34,12 +34,12 @@ int main()
    total = subtotal + tax_cost;
 
    //relaying order
-   cout << "You ordered " << number_ordered << " " << food_name << " and it's $" << subtotal << endl;
+   cout << "You ordered " << number_ordered << " " << food_name << " and it is $" << subtotal << endl;
 
    //prit receipt
-   cout << "Subtotal: $" << subtotal << endl;
-   cout << "Tax (8%): $" << tax_cost << endl;
-   cout << "Total:    $" << total << endl;
+   cout << "Subtotal: $" << setw(10) << subtotal << endl; //setw(x) makes every line x characters; lines them up on the left 
+   cout << "Tax (8%): $" << setw(10) << tax_cost << endl;
+   cout << "Total:    $" << setw(10) << total << endl;
    cout << endl;
    cout << "Have a nice day!" << endl;
    return 0;
