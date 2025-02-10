@@ -137,10 +137,9 @@ int main(void)
                     DrawRectangle(300, 400, 200, 200, DARKBLUE);
                     
                     //update position
-                    player_x = player_x + speed_x;
+                    /*player_x = player_x + speed_x;
                     player_y = player_y + speed_y;
                     
-                    /*
                     //wrap around
                     if (player_x > screenWidth || player_x < 0)
                     {
