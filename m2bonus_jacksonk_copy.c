@@ -14,7 +14,6 @@
 ********************************************************************************************/
 
 #include "raylib.h"
-#include <stdlib.h>
 
 //------------------------------------------------------------------------------------------
 // Types and Structures Definition
@@ -44,11 +43,8 @@ int main(void)
     //variables
     int player_x = screenWidth / 2;
     int player_y = screenHeight / 2;
-    int speed_x = 0;
-    int speed_y = 0;
-    
-    int fruit_x;
-    int fruit_y;
+    int speed_x = 5;
+    int speed_y = 5;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -134,39 +130,38 @@ int main(void)
                 case GAMEPLAY:
                 {
                     // TODO: Draw GAMEPLAY screen here!
-                    DrawRectangle(0, 0, screenWidth, screenHeight, DARKPURPLE);
-                    DrawText("GAMEPLAY SCREEN", 20, 20, 40, YELLOW);
-                    DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, YELLOW);
+                    DrawRectangle(0, 0, screenWidth, screenHeight, ORANGE);
+                    DrawText("GAMEPLAY SCREEN", 20, 20, 40, DARKBLUE);
+                    DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, DARKBLUE);
                     
-                    DrawRectangle(300, 400, 200, 200, PURPLE);
+                    DrawRectangle(300, 400, 200, 200, DARKBLUE);
                     
                     //update position
-                    player_x = player_x + speed_x;
+                    /*player_x = player_x + speed_x;
                     player_y = player_y + speed_y;
+                    */
                     
+               
+                    int base_speed = 2;
                     
-                    
-                    int base_speed = 3;
+                    //draw player here
+                    DrawRectangle(player_x, player_y, 50, 50, BLUE);
                     
                     if (IsKeyPressed(KEY_LEFT))
                     {
-                        speed_x = -base_speed;
-                        speed_y = 0;
+                        player_x = player_x - speed_x;
                     }
                     if (IsKeyPressed(KEY_RIGHT))
                     {
-                        speed_x = base_speed;
-                        speed_y = 0;
+                        player_x = player_x + speed_x;
                     }
                     if (IsKeyPressed(KEY_UP))
                     {
-                        speed_y = -base_speed;
-                        speed_x = 0;
+                        player_y = player_y - speed_y;
                     }
                     if (IsKeyPressed(KEY_DOWN))
                     {
-                        speed_y = base_speed;
-                        speed_x = 0;
+                        player_y = player_y + speed_x;
                     }
                     
                     //wrap around
@@ -191,28 +186,6 @@ int main(void)
                         //speed_y = -speed_y; //bounce
                     }
                     
-                    //draw fruit
-                    fruit_x = 300;
-                    fruit_y = 300;
-                    DrawCircleGradient(fruit_x, fruit_y, 15, ORANGE, RED);
-                    DrawCircle(fruit_x + 8, fruit_y - 5, 3, RAYWHITE);
-                    
-                    //draw player here
-                    DrawCircleGradient(player_x, player_y, 25, BLUE, DARKBLUE);
-                    DrawCircle(player_x - 10, player_y, 2, RAYWHITE);
-                    DrawCircle(player_x + 10, player_y, 2, RAYWHITE);
-                    DrawRectangle(player_x - 10, player_y + 10, 20, 2, RAYWHITE);
-                    
-                    if (abs(player_x - fruit_x) < 10)
-                    {
-                        if (abs(player_y - fruit_y) < 10)
-                        {
-                            player_x = 10;
-                            player_y = 10;
-                            currentScreen = ENDING;
-                            base_speed + 1;
-                        }
-                    }
 
                 } break;
                 case ENDING:
@@ -225,13 +198,7 @@ int main(void)
                     DrawRectangle(300, 400, 200, 200, GOLD);
 
                 } break;
-                /*
-                case LOSE:
-                DrawRectangle (0, 0, screenWidth, screenHeight, BLACK);
-                DrawText("YOU DIED", 400, 200, 20, MAROON);
-                DrawText("PRESS ENTER or TAP to RETURN to TITLE SCREEN", 120, 220, 20, MAROON);
                 default: break;
-                */
             }
 
         EndDrawing();
