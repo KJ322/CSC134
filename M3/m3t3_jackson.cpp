@@ -46,25 +46,38 @@ int main()
     {
         cout << "Your point is " << total << endl;
         point = total;
-        cout << "TODO" << endl;
+        //cout << "TODO" << endl;
         //loop, keep rolling until the roll point (win) or 7 (lose)
+        roll1 = ((rand() % SIDES) + 1);
+        roll2 = ((rand() % SIDES) + 1);
+
+        total = roll1 + roll2;
+
+        cout << "You rolled " << roll1 << " + " << roll2 << " = " << total << endl;
+
+        if (total == point)
+        {
+            cout << "You win!" << endl;
+        }
+        else if (total == 7)
+        {
+            cout << "You lose." << endl;
+        }
         while (total != 7 && total != point)
         {
-            roll1 = ( (rand() % SIDES)+1 );
-            roll2 = ((rand() % SIDES) +1 );
+            roll1 = ((rand() % SIDES) + 1);
+            roll2 = ((rand() % SIDES) + 1);
 
             total = roll1 + roll2;
 
             cout << "You rolled " << roll1 << " + " << roll2 << " = " << total << endl;
-
-            if (total == point)
-            {
-                cout << "You win!" << endl;
-            }
-            else if (total == 7)
+            
+            if (total == 7)
             {
                 cout << "You lose." << endl;
             }
         }
+
+            
     }
 }
