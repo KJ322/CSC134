@@ -19,7 +19,11 @@ int main()
   cin >> grade;
 
   //determines letter grade based on user input
-  if (grade >= 90 && grade <= 100)
+  if (grade > 100 || grade < 0)
+  {
+    cout << "Invalid grade. Try again." << endl;
+  }
+  else if (grade >= 90 && grade <= 100)
   {
     letter_grade = 'A';
   }
@@ -38,10 +42,6 @@ int main()
   else if (grade < 60)
   {
     letter_grade = 'F';
-  }
-  else if (grade > 100 || grade < 0)
-  {
-    cout << "Invalid grade. Try again." << endl;
   }
   cout << "Your numerical grade is " << grade << endl;
   cout << "Your letter grade is " << letter_grade << endl;
