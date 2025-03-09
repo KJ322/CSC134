@@ -43,6 +43,8 @@ int main()
   {
     cout << "Invalid grade. Try again." << endl;
   }
+  cout << "Your numerical grade is " << grade << endl;
+  cout << "Your letter grade is " << letter_grade << endl;
 
   return 0;
 }
