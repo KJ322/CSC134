@@ -45,7 +45,7 @@ int main()
     else if (choice == "run")
     {
       cout << "You turn and run away from the dragon. Maybe not the best idea, but it works." << endl;
-      cout << "You hide yourself under some bushes and dirt to hide your smell." << endl;
+      cout << "You hide yourself under some bushes and dirt to mask your smell." << endl;
       cout << "The dragon sniffs around, but is unable to find you. It turns and flies away. You live to see another day." << endl;
       cout << "You reach your destination with no other problems." << endl;
     }
