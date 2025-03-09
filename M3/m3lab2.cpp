@@ -15,7 +15,7 @@ int main()
   char letter_grade;
 
   //getter numerical grade from user
-  cout << "Enter numerical grade: " << endl;
+  cout << "Enter numerical grade: ";
   cin >> grade;
 
   //determines letter grade based on user input
