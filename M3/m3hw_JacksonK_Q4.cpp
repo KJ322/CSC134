@@ -7,6 +7,7 @@ Jackson K
 
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 using namespace std;
 
 int main() 
@@ -19,9 +20,10 @@ int main()
   srand(seed);
 
   //declaring rest of variables
-  int num1 = rand();
-  int num2 = rand();
+  int num1 = rand() % 9;
+  int num2 = rand() % 9;
 
+ 
   cout << "Solve this problem: " << endl;
   cout << num1 << " + " << num2 << endl;
   cin >> answer;
