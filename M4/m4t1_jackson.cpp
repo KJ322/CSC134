@@ -10,7 +10,14 @@ using namespace std;
   
 int main()
 {
-   
+    //count five times
+   int count = 1;
+   while (count <= 5)
+   {
+        cout << "Hello #" << count << endl;
+        count += 1;
+   }
+   cout << "finished" << endl;
 
    return 0;
 }
