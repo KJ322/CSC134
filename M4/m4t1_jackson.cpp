@@ -25,12 +25,12 @@ int main()
    //part 2 - table of squares
    //also writing to a file
    const int MIN_NUM = 1;
-   const int MAX_NUM = 10;
+   const int MAX_NUM = 10000;
    int num = MIN_NUM, sq;
    string filename = "squares.txt";
 
    //open the file
-   ofstream outfile(filename);
+   ofstream outfile(filename); //this replaces cout
    if (!outfile.is_open())
    {
         cout << "Error: could not open " << filename << endl;
@@ -51,7 +51,7 @@ int main()
    outfile.close();
 
    cout << endl;
-   cout << "finished" << endl;
+   cout << "finished writing file" << endl;
    cout << endl;
 
    return 0;
