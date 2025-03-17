@@ -16,18 +16,18 @@ int main()
 
     cout << "What is the width of the square? ";
     cin >> width;
-    if (width == 0)
+    if (width <= 0)
     {
-        cout << "The width needs to be a non-zero value." << endl;
+        cout << "The width needs to be greater than 0." << endl;
         cout << "What is the width of the square? ";
         cin >> width;
     };
 
     cout << "What is the height of the square? ";
     cin >> height;
-    if (height == 0)
+    if (height <= 0)
     {
-        cout << "The height needs to be a non-zero value." << endl;
+        cout << "The height needs to be greater than 0." << endl;
         cout << "What is the height of the square? ";
         cin >> height;
     };
