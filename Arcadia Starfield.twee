@@ -1,0 +1,89 @@
+:: StoryTitle
+Arcadia Starfield
+
+
+:: StoryData
+{
+  "ifid": "BD5DD810-9AF3-4122-BD9C-34C201C83A18",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Game Start",
+  "zoom": 0.6
+}
+
+
+:: Astronomer {"position":"875,0","size":"100,100"}
+Astronomers can tell where they are with only the stars above and around them. They're pretty handy to know when you need to find your way.
+
+(set: $animalHandling to 4)
+(set: $techSkills to 7)
+(set: $starKnowledge to 10)
+
+[[return ->Character Creation]] 
+[[start]]
+
+
+:: Character Creation {"position":"550,0","size":"100,100"}
+🌳 Xenobiologist
+🌟 Astronomer
+🔧 Mechanic
+
+[[Xenobiologist]]
+[[Astronomer]]
+[[Mechanic]]
+
+
+
+
+:: Game Start {"position":"125,25","size":"100,100"}
+Welcome to Arcadia Starfield.
+
+[[Choose your class ->Character Creation]]
+
+
+:: Mechanic {"position":"1000,0","size":"100,100"}
+Mechanics can easily take apart and put any machine back together again. They can tell, with a little bit of testing, what materials can be used to fix a problem with machinery.
+
+(set: $animalHandling to 3)
+(set: $techSkills to 10)
+(set: $starKnowledge to 5)
+
+[[return ->Character Creation]] 
+[[start]]
+
+
+:: Xenobiologist {"position":"750,0","size":"100,100"}
+Xenobiologists are great with plants and animals. They're easily able to identify which plants are edible, and which animals are agressive.
+
+(set: $animalHandling to 10)
+(set: $techSkills to 5)
+(set: $starKnowledge to 7)
+
+
+
+[[return ->Character Creation]] 
+[[start]](if:$starKnowledge > 5)[Your Text Here]
+
+
+:: check fuel {"position":"400,400","size":"100,100"}
+You check the fuel indicator, and find just enough left to propel yourself a little ways from where you are currently drifting helplessly through space.
+
+(if:$techSkills > 6)[|fuelLeft>[You glace over to the scanners and see a stellar nursery nearby. You have enough fuel to get there.]]
+
+[[check scanners]]
+
+
+
+:: check scanners {"position":"100,400","size":"100,100"}
+You may not have a way to move, but the equipment is still working. The scanner shows a stellar nursery nebula pretty close to your current position.
+
+(if:$starKnowledge > 5)[|stellarNursery>[You know that your best chance of surviving until rescue comes is landing on a planet, and a stellar nursery is a great place to find them]]
+
+[[check fuel]] 
+
+
+:: start {"position":"225,175","size":"100,100"}
+You've been stranded in the Arcadia Starfield for two weeks. The amount of fuel needed for this journey was miscalculated, and you've been stuck here alone since you ran out.
+
+[[check scanners]]
+[[check fuel]]
