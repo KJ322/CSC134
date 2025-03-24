@@ -34,7 +34,8 @@ int get_num(int user_number)
     {
         cout << "Number is not between 1 and 12. Please try again." << endl;
         cout << "Enter a number between 1 and 12: ";
-        cin >> user_number;
+        user_number = get_num(user_number);
+        //cin >> user_number;
     }
 
     return user_number;
