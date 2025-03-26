@@ -20,16 +20,28 @@ dots on the top right, and click 'fork repl'. This makes a copy for you to use.
 // be listed here, in this format, at the top.
 // This is so the compiler knows to save
 // room for them in the final program.
+
+//choices in the cockpit
 void cockpit();
 void check_star_map();
 void check_fuel_levels();
-void explore_ship();
 void fly_ship();
+void explore_ship();
+
+//choices when exploring the ship
 void door_1();
 void door_2();
 void door_3();
 void door_4();
-// TODO: add more choices here
+void end_of_hall();
+
+//choices when flying the ship
+void landing();
+void enter_orbit();
+
+//choices in room 1
+void search_bunks();
+
 
 int main() 
 {
@@ -44,8 +56,7 @@ int main()
 void cockpit() 
 {
   // Write a simple menu that lets the user choose 1,2, or 3, or 4 to quit.
-  cout << "Main Menu" << endl;
-  cout << "Your ship floats helplessly through space..." << endl;
+  cout << "Your ship drifts helplessly through space..." << endl;
   cout << "Do you:" << endl;
   cout << "1. Check the star map" << endl;
   cout << "2. Check the fuel levels" << endl;
@@ -83,6 +94,8 @@ void cockpit()
 // OK, we have the prototypes at the top, but
 // now we have to actually write the functions.
 // They go here, after main().
+
+//choices in the cockpit
 void check_star_map() 
 {
   cout << "Check the star map." << endl;
@@ -136,7 +149,8 @@ void explore_ship()
   cout << "2. Enter the first door on the right" << endl;
   cout << "3. Enter the second door on the left" << endl;
   cout << "4. Enter the second door on the right" << endl;
-  cout << "5. Go back to cockpit" << endl;
+  cout << "5. Go to the end of the hallway" << endl;
+  cout << "6. Go back to cockpit" << endl;
   int choice;
   cout << "Choose: ";
   cin >> choice;
@@ -158,19 +172,56 @@ void explore_ship()
   }
   else if (5 == choice)
   {
+    end_of_hall();
+  }
+  else if (6 == choice)
+  {
     cockpit();
   }
 }
 
-// any new choices go here
 void fly_ship() 
 { 
-  cout << "TODO: fly the ship" << endl; 
+  cout << "You sit down in the captain's chair and turn everything on." << endl;
+  cout << "The ship burns the rest of the fuel and shuts off." << endl;
+  cout << "A light on the console says you still have maneuverability." << endl;
+  cout << "You continue to float, now in the direction the ship had been going." << endl;
+  cout << "As you float along, you notice a planet below you." << endl;
+  cout << "Do you:" << endl;
+  cout << "1. Try to land on the planet below" << endl;
+  cout << "2. Enter orbit" << endl;
+  int choice;
+  cout << "Choose: ";
+  cin >> choice;
+  if (1 == choice) 
+  {
+    landing();
+  } 
+  else if (2 == choice) 
+  {
+    enter_orbit();
+  }
 }
 
+//choices when exploring the ship
 void door_1()
 {
-  cout << "TODO: first door on the left" << endl;
+  cout << "You enter the first door on the left." << endl;
+  cout << "There are two bunks for crew members." << endl;
+  cout << "Do you:" << endl;
+  cout << "1. Search the bunks" << endl;
+  cout << "2. Go back to the hallway" << endl;
+  int choice;
+  cout << "Choose: ";
+  cin >> choice;
+  if (1 == choice) 
+  {
+    search_bunks();
+  } 
+  else if (2 == choice) 
+  {
+    explore_ship();
+  }
 }
 
 void door_2()
@@ -186,4 +237,26 @@ void door_3()
 void door_4()
 {
   cout << "TODO: second door on the right" << endl;
+}
+
+void end_of_hall()
+{
+  cout << "TODO: go to the end of the hallway" << endl;
+}
+
+//choices when flying the ship
+void landing()
+{
+  cout << "TODO: land on the planet below" << endl;
+}
+
+void enter_orbit()
+{
+  cout << "TODO: enter orbit" << endl;
+}
+
+//choices in room 1
+void search_bunks()
+{
+  cout << "TODO: search the bunks" << endl;
 }
