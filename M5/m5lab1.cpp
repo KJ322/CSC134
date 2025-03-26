@@ -285,7 +285,22 @@ void landing()
 
 void enter_orbit()
 {
-  cout << "TODO: enter orbit" << endl;
+  cout << "You use the maneuvering thrusters to enter orbit around the planet." << endl;
+  cout << "There is a kitchen and eating area for the crew." << endl;
+  cout << "Do you:" << endl;
+  cout << "1. Look through the cabinets" << endl;
+  cout << "2. Go back to the hallway" << endl;
+  int choice;
+  cout << "Choose: ";
+  cin >> choice;
+  if (1 == choice) 
+  {
+    check_cabinets();
+  } 
+  else if (2 == choice) 
+  {
+    explore_ship();
+  }
 }
 
 //choices in room 1/room 2
