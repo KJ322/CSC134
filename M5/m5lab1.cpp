@@ -39,8 +39,11 @@ void end_of_hall();
 void landing();
 void enter_orbit();
 
-//choices in room 1
+//choices in room 1/room 2
 void search_bunks();
+
+//choices in room 3
+void check_cabinets();
 
 
 int main() 
@@ -226,12 +229,42 @@ void door_1()
 
 void door_2()
 {
-  cout << "TODO: first door on the right" << endl;
+  cout << "You enter the first door on the right." << endl;
+  cout << "There are two bunks for crew members." << endl;
+  cout << "Do you:" << endl;
+  cout << "1. Search the bunks" << endl;
+  cout << "2. Go back to the hallway" << endl;
+  int choice;
+  cout << "Choose: ";
+  cin >> choice;
+  if (1 == choice) 
+  {
+    search_bunks();
+  } 
+  else if (2 == choice) 
+  {
+    explore_ship();
+  }
 }
 
 void door_3()
 {
-  cout << "TODO: second door on the left" << endl;
+  cout << "You enter the second door on the left." << endl;
+  cout << "There is a kitchen and eating area for the crew." << endl;
+  cout << "Do you:" << endl;
+  cout << "1. Look through the cabinets" << endl;
+  cout << "2. Go back to the hallway" << endl;
+  int choice;
+  cout << "Choose: ";
+  cin >> choice;
+  if (1 == choice) 
+  {
+    check_cabinets();
+  } 
+  else if (2 == choice) 
+  {
+    explore_ship();
+  }
 }
 
 void door_4()
@@ -255,8 +288,14 @@ void enter_orbit()
   cout << "TODO: enter orbit" << endl;
 }
 
-//choices in room 1
+//choices in room 1/room 2
 void search_bunks()
 {
   cout << "TODO: search the bunks" << endl;
+}
+
+//choices in room 3
+void check_cabinets()
+{
+  cout << "TODO: look through the cabinets" << endl;
 }
