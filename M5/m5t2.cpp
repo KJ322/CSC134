@@ -15,7 +15,7 @@ int main()
 {
     for (int num = 1; num <= 10; num++)
     {
-        int square = find_square(num); //should call find_square()
+        int square = find_square(num); //should call find_square
         print_line (num, square);
     }
 
