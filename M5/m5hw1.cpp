@@ -116,7 +116,7 @@ void distanceCalculator()
     cout << "How many hours has it been? ";
     cin >> time;
 
-    for (int i = time; i <= time; i++)
+    for (int i = 1; i <= time; i++)
     {
         distance = speed * time;
 
