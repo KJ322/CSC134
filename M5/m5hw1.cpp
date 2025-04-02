@@ -116,11 +116,12 @@ void distanceCalculator()
     cout << "How many hours has it been? ";
     cin >> time;
 
+    cout << "-------------------------------------" << endl;
     for (int i = 1; i <= time; i++)
     {
-        distance = speed * time;
+        distance = speed * i;
 
-        cout << "-------------------------------------" << endl;
+        
         cout << i << setw(10) << distance << endl;
     }
 
