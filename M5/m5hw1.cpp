@@ -5,6 +5,7 @@ Katherine Jackson
 */
 
 #include <iostream>
+#include <iomanip>
   
 using namespace std;
 
@@ -108,5 +109,19 @@ void geometryCalculator()
 
 void distanceCalculator()
 {
-    //TODO
+    int speed, time, distance;
+
+    cout << "What is the speed in mph? ";
+    cin >> speed;
+    cout << "How many hours has it been? ";
+    cin >> time;
+
+    for (int i = time; i <= time; i++)
+    {
+        distance = speed * time;
+
+        cout << "-------------------------------------" << endl;
+        cout << i << setw(10) << distance << endl;
+    }
+
 }
