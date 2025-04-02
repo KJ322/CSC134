@@ -49,6 +49,7 @@ int main()
             distanceCalculator();
         case QUIT:
             cout << "Have a nice day!";
+            break;
         default:
             cout << "Invalid input. Try again." << endl;
             cin >> choice;
