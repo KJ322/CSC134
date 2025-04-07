@@ -21,16 +21,22 @@ int main()
     int stats[NUM_STATS];
     string stat_names[] = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
     int current_stat;
-    double total_stats;
+    double total_stats = 0;
     double average_stat;
 
     cout << "Please eneter your character stats." << endl;
     for (int i = 0; i < NUM_STATS; i++)
     {
-        cout << "Stat (" << stat_names[i] << "): ";
+        cout << stat_names[i] << ": ";
         cin >> current_stat;
         stats[i] = current_stat;
+
+        total_stats += current_stat;
     }
+
+    average_stat = total_stats / NUM_STATS;
+    cout << "Total: " << total_stats << endl;
+    cout << "Average: " << average_stat << endl;
 
     cout << "STR: " << stats[STR] << endl;
     cout << "DEX: " << stats[DEX] << endl;
