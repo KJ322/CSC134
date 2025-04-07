@@ -19,6 +19,7 @@ int main()
     const int CHA = 5;
 
     int stats[NUM_STATS];
+    string stat_names[] = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
     int current_stat;
     double total_stats;
     double average_stat;
@@ -26,7 +27,7 @@ int main()
     cout << "Please eneter your character stats." << endl;
     for (int i = 0; i < NUM_STATS; i++)
     {
-        cout << "Stat: ";
+        cout << "Stat (" << stat_names[i] << "): ";
         cin >> current_stat;
         stats[i] = current_stat;
     }
@@ -36,6 +37,5 @@ int main()
     cout << "CON: " << stats[CON] << endl;
     cout << "INT: " << stats[INT] << endl;
     cout << "WIS: " << stats[WIS] << endl;
-    cout << "CHA: " << stats[CHA] << endl;
-    
+    cout << "CHA: " << stats[CHA] << endl; 
 }
