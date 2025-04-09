@@ -1,0 +1,282 @@
+:: StoryTitle
+Arcadia Starfield
+
+
+:: StoryData
+{
+  "ifid": "BD5DD810-9AF3-4122-BD9C-34C201C83A18",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Game Start",
+  "zoom": 0.6
+}
+
+
+:: Astronomer {"position":"2075,0","size":"100,100"}
+Astronomers can tell where they are with only the stars above and around them. They're pretty handy to know when you need to find your way.
+
+(set: $animalHandling to 4)
+(set: $techSkills to 7)
+(set: $starKnowledge to 10)
+
+[[return ->Character Creation]] 
+
+
+
+:: Character Creation {"position":"2300,0","size":"100,100"}
+🌳 Xenobiologist
+🌟 Astronomer
+🔧 Mechanic
+
+[[Xenobiologist]]
+[[Astronomer]]
+[[Mechanic]]
+
+
+:: Game Start {"position":"125,300","size":"100,100"}
+Welcome to Arcadia Starfield.
+
+[[start game ->cockpit]] 
+
+
+:: Mechanic {"position":"2175,0","size":"100,100"}
+Mechanics can easily take apart and put any machine back together again. They can tell, with a little bit of testing, what materials can be used to fix a problem with machinery.
+
+(set: $animalHandling to 3)
+(set: $techSkills to 10)
+(set: $starKnowledge to 5)
+
+[[return ->Character Creation]] 
+
+
+
+:: Stay in orbit {"position":"100,500","size":"100,100"}
+
+
+
+:: Xenobiologist {"position":"1950,0","size":"100,100"}
+Xenobiologists are great with plants and animals. They're easily able to identify which plants are edible, and which animals are agressive.
+
+(set: $animalHandling to 10)
+(set: $techSkills to 5)
+(set: $starKnowledge to 7)
+
+
+
+[[return ->Character Creation]] 
+
+
+
+:: airlock {"position":"425,800","size":"100,100"}
+As you go to the airlock to step outside, a voice in the back of your head tells you to go back and check the contents of this alien planet's atmosphere. The air here may be harmful to you, and you know that the oxegyn filters can keep going for quite some time, plus the spares in the storage room.
+
+[[Go back and check the air ->check air]] 
+[[Ignore the voice in the back of your head ->outside]]
+
+
+:: check air {"position":"575,800","size":"100,100"}
+The monitors to the side of the cockpit survived the ship, and you can see on one that the atmosphere outside has a high enough oxegyn content for you to breath comfortably. 
+
+[[Go outside ->outside]]
+[[Explore the ship ->crashed ship]] 
+
+
+:: check fuel levels {"position":"375,175","size":"100,100"}
+You check the fuel indicator, and find just enough left to propel yourself a little ways from where you are currently drifting helplessly through space.
+
+(if:$techSkills > 6)[|fuelLeft>[You glace over to the scanners and see a stellar nursery nearby. You have enough fuel to get there.]]
+
+[[check star maps]]
+[[fly ship]]
+[[explore ship]]
+
+
+:: check star maps {"position":"475,475","size":"100,100"}
+You may not have a way to move, but the equipment is still working. The scanner shows a stellar nursery nebula pretty close to your current position.
+
+(if:$starKnowledge > 5)[|stellarNursery>[You know that your best chance of surviving until rescue comes is landing on a planet, and a stellar nursery is a great place to find them]]
+
+[[check fuel levels]]
+[[fly ship]]
+[[explore ship]]
+
+
+:: cockpit {"position":"300,300","size":"100,100"}
+You've been stranded in the Arcadia Starfield for two weeks. The amount of fuel needed for this journey was miscalculated, and you've been stuck here alone since you ran out.
+
+[[check star maps]]
+[[check fuel levels]]
+
+
+:: craft store {"position":"950,2025","size":"100,100"}
+
+
+
+:: crashed ship {"position":"600,1000","size":"100,100"}
+You enter the hallway. The lights are flickering, and there are wires sticking out of the wall. Some of the doors are stuck at half-open.
+
+[[Enter the first door on the left ->first left door crashed]]
+[[Enter the first door on the right ->first right door crashed]]
+[[Enter the second door on the left ->second left door crashed]]
+[[Enter the second door on the right ->second right door crashed]]
+[[go to the end of the hallway ->end of hallway crashed]]
+[[Go back to the cockpit ->land ship]]
+
+
+:: end of hallway {"position":"975,325","size":"100,100"}
+
+
+
+:: end of hallway crashed {"position":"1200,1000","size":"100,100"}
+
+
+
+:: enter the town {"position":"1100,1600","size":"100,100"}
+When you finally get to the town, the smaller sun has sunk below the horizon and it is significantly darker. There are lamps lining the streets lighting the way. You don't see anyone in the streets here, but you know that, logically, the town square has to be farther in.
+
+[[Continue down the street ->main street]]
+
+
+:: explore ship {"position":"525,300","size":"100,100"}
+You exit the cockpit and find a hallway with four doors.
+
+[[Enter the first door on the left ->first left door]]
+[[Enter the first door on the right ->first right door]]
+[[Enter the second door on the left ->second left door]]
+[[Enter the second door on the right ->second right door]]
+[[go to the end of the hallway ->end of hallway]]
+[[Go back to the cockpit ->cockpit]]
+
+
+:: field {"position":"1000,1475","size":"100,100"}
+You walk away from your ship and the tree line, and as you crest the hill, you see far off in the distance the dot of a town on the horizon. 
+
+[[Go to the town ->enter the town]]
+[[Head back to the ship ->outside]] 
+
+
+:: first left door {"position":"700,175","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members.
+
+[[search the bunks ->search left bunks]]
+[[Go back to the hallway ->explore ship]] 
+
+
+
+:: first left door crashed {"position":"800,900","size":"100,100"}
+
+
+
+:: first right door {"position":"675,450","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members.
+
+[[search the bunks ->search right bunks]]
+[[Go back to the hallway ->explore ship]] 
+
+
+:: first right door crashed {"position":"800,1100","size":"100,100"}
+
+
+
+:: fly ship {"position":"325,450","size":"100,100"}
+You sit down in the captain's chair and turn everything on. The ship burns the rest of the fuel and shuts off. A light on the consol says you still have maneuverability. You continue to float, now in the direction the ship had been going. As you float along, you notice a planet below you.
+
+[[Try to land on the planet below ->land ship]]
+[[Enter orbit ->orbit]]
+
+
+:: inn {"position":"1225,2025","size":"100,100"}
+You enter the building with what looks like a bed on the sign. Behind the counter, you see a reptilian humanoid with large ridges on its head reading a book. There's a bell of some sort above the door that jingles when you walk in, and the alien looks up to greet you.
+
+[[contine ->inn continued]]
+
+
+:: inn continued {"position":"1400,2025","size":"100,100"}
+The alien startles when it sees you, and starts talking. It takes a minute for your translator to collect enough data for you to understand what the alien is saying. When it finally does, you ask it to repeat itself.
+
+
+
+
+:: land ship {"position":"500,650","size":"100,100"}
+You use the maneuvering thrusters to push yourself down through the planet's atmosphere. Your boosters are just powerful enough to slow your descent enough to keep you from dying on impact. In fact, you're doing quite well, but the ship doesn't seem to be doing as well.
+
+Looking at the console, there are lights flashing that weren't before, each indicating something that has gone wrong during the landing.
+
+[[Go outside ->airlock]]
+[[Check the air outside ->check air]]
+[[Explore the ship ->crashed ship]]
+
+
+:: main street {"position":"1100,1725","size":"100,100"}
+You walk down the street and see a few shops open. The signs are all written in an alien language, but from what you can see through the windows, there doesn't seem to be much difference between these and shops you might find back on Earth.
+
+[[Enter the resteraunt ->resteraunt]]
+[[Enter the tech shop ->tech shop]]
+[[Enter the craft store ->craft store]]
+[[Enter the inn ->inn]]
+[[Keep going ->town square]]
+
+
+:: orbit {"position":"275,650","size":"100,100"}
+You use the maneuvering thrusters to enter orbit around the planet. You're in a steady orbit now, but it's decaying slowly. You won't be able to keep this up forever. 
+
+[[Try to land on the planet ->land ship]] 
+[[Stay in orbit]]
+
+
+:: outside {"position":"300,1000","size":"100,100"}
+(if:(history: where its name contains "check air")'s length is 0)[It's your lucky day!]
+You step outside and feel a cool breeze on your face. There are two stars in the sky, and based on their position you can guess it's about halfway through the planetary day. There's a tree line not too far away from where you crashed, and in the opposite direction is a field of grass.
+
+[[Go to the treeline ->tree line]]
+[[Go to the field ->field]]
+[[Go back to your ship ->land ship]] 
+
+
+:: resteraunt {"position":"950,1875","size":"100,100"}
+
+
+
+:: search cabinets {"position":"900,50","size":"100,100"}
+
+
+
+:: search left bunks {"position":"625,50","size":"100,100"}
+
+
+
+:: search right bunks {"position":"700,600","size":"100,100"}
+
+
+
+:: second left door {"position":"850,175","size":"100,100"}
+You enter the second door on the left. There is a kitchen and eating area for the crew.
+
+[[Look through the cabinets ->search cabinets]]
+[[Go back to the hallway ->explore ship]] 
+
+
+:: second left door crashed {"position":"1000,900","size":"100,100"}
+
+
+
+:: second right door {"position":"850,450","size":"100,100"}
+You enter the second door on the right. TODO
+
+[[Go back to the hallway ->explore ship]] 
+
+
+:: second right door crashed {"position":"1000,1100","size":"100,100"}
+
+
+
+:: tech shop {"position":"1225,1875","size":"100,100"}
+
+
+
+:: town square {"position":"1075,2150","size":"100,100"}
+
+
+
+:: tree line {"position":"400,1500","size":"100,100"}
+
