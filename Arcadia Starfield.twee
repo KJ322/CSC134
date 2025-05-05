@@ -12,18 +12,17 @@ Arcadia Starfield
 }
 
 
-:: Astronomer {"position":"875,0","size":"100,100"}
+:: Astronomer {"position":"2075,0","size":"100,100"}
 Astronomers can tell where they are with only the stars above and around them. They're pretty handy to know when you need to find your way.
 
 (set: $animalHandling to 4)
 (set: $techSkills to 7)
 (set: $starKnowledge to 10)
 
-[[return ->Character Creation]] 
-[[start]]
+[[return ->Character Creation]]
 
 
-:: Character Creation {"position":"550,0","size":"100,100"}
+:: Character Creation {"position":"2300,0","size":"100,100"}
 🌳 Xenobiologist
 🌟 Astronomer
 🔧 Mechanic
@@ -33,26 +32,27 @@ Astronomers can tell where they are with only the stars above and around them. T
 [[Mechanic]]
 
 
-
-
-:: Game Start {"position":"125,25","size":"100,100"}
+:: Game Start {"position":"125,300","size":"100,100"}
 Welcome to Arcadia Starfield.
 
-[[Choose your class ->Character Creation]]
+[[start game ->cockpit]]
 
 
-:: Mechanic {"position":"1000,0","size":"100,100"}
+:: Mechanic {"position":"2175,0","size":"100,100"}
 Mechanics can easily take apart and put any machine back together again. They can tell, with a little bit of testing, what materials can be used to fix a problem with machinery.
 
 (set: $animalHandling to 3)
 (set: $techSkills to 10)
 (set: $starKnowledge to 5)
 
-[[return ->Character Creation]] 
-[[start]]
+[[return ->Character Creation]]
 
 
-:: Xenobiologist {"position":"750,0","size":"100,100"}
+:: Stay in orbit {"position":"100,500","size":"100,100"}
+
+
+
+:: Xenobiologist {"position":"1950,0","size":"100,100"}
 Xenobiologists are great with plants and animals. They're easily able to identify which plants are edible, and which animals are agressive.
 
 (set: $animalHandling to 10)
@@ -61,29 +61,305 @@ Xenobiologists are great with plants and animals. They're easily able to identif
 
 
 
-[[return ->Character Creation]] 
-[[start]](if:$starKnowledge > 5)[Your Text Here]
+[[return ->Character Creation]]
 
 
-:: check fuel {"position":"400,400","size":"100,100"}
+:: airlock {"position":"425,800","size":"100,100"}
+As you go to the airlock to step outside, a voice in the back of your head tells you to go back and check the contents of this alien planet's atmosphere. The air here may be harmful to you, and you know that the oxegyn filters can keep going for quite some time, plus the spares in the storage room.
+
+[[Go back and check the air ->check air]] 
+[[Ignore the voice in the back of your head ->outside]]
+
+
+:: check air {"position":"575,800","size":"100,100"}
+The monitors to the side of the cockpit survived the ship, and you can see on one that the atmosphere outside has a high enough oxegyn content for you to breath comfortably. 
+
+[[Go outside ->outside]]
+[[Explore the ship ->crashed ship]]
+
+
+:: check fuel levels [fly-ship] {"position":"375,175","size":"100,100"}
 You check the fuel indicator, and find just enough left to propel yourself a little ways from where you are currently drifting helplessly through space.
 
 (if:$techSkills > 6)[|fuelLeft>[You glace over to the scanners and see a stellar nursery nearby. You have enough fuel to get there.]]
 
-[[check scanners]]
+[[check star maps]]
+[[fly ship]]
+[[explore ship]]
 
 
-
-:: check scanners {"position":"100,400","size":"100,100"}
+:: check star maps [fly-ship] {"position":"475,475","size":"100,100"}
 You may not have a way to move, but the equipment is still working. The scanner shows a stellar nursery nebula pretty close to your current position.
 
-(if:$starKnowledge > 5)[|stellarNursery>[You know that your best chance of surviving until rescue comes is landing on a planet, and a stellar nursery is a great place to find them]]
+[[check fuel levels]]
+[[fly ship]]
+[[explore ship]]
 
-[[check fuel]] 
 
-
-:: start {"position":"225,175","size":"100,100"}
+:: cockpit {"position":"300,300","size":"100,100"}
 You've been stranded in the Arcadia Starfield for two weeks. The amount of fuel needed for this journey was miscalculated, and you've been stuck here alone since you ran out.
 
-[[check scanners]]
-[[check fuel]]
+[[check star maps]]
+[[check fuel levels]]
+(if:(history: where (passage:it)'s tags contains "fly ship")'s length >= 1)[ [[Fly the ship ->fly ship]]]
+
+
+:: convince {"position":"1550,2150","size":"100,100"}
+
+
+
+:: craft store {"position":"950,2025","size":"100,100"}
+
+
+
+:: crashed ship {"position":"600,1000","size":"100,100"}
+You enter the hallway. The lights are flickering, and there are wires sticking out of the wall. Some of the doors are stuck at half-open.
+
+[[Enter the first door on the left ->first left door crashed]]
+[[Enter the first door on the right ->first right door crashed]]
+[[Enter the second door on the left ->second left door crashed]]
+[[Enter the second door on the right ->second right door crashed]]
+[[go to the end of the hallway ->end of hallway crashed]]
+[[Go back to the cockpit ->land ship]]
+
+
+:: directions {"position":"1700,2025","size":"100,100"}
+You ask for directions around town, to where, though, you don't know. The alien starts talking:
+
+The shop directly across the street is a craft store. Right next door is a tech shop, and across from that is a resteraunt.
+
+[[Ask to stay the night ->stay the night]] 
+[[Leave ->leave(directions)]] 
+
+
+:: end of hallway {"position":"900,300","size":"100,100"}
+At the end of the hallway there's a door into a small laboratory. There's a table in the center of the room, and counters on either side, each with various pieces of scientific equipment laying about. On the far wall is a storage rack and some other scientific equipment. 
+
+[[Leave ->explore ship]] 
+
+
+:: end of hallway crashed {"position":"1000,1000","size":"100,100"}
+At the end of the hallway there's a door into a small laboratory. There's a table in the center of the room, and counters on either side, each with various pieces of scientific equipment laying about. On the far wall is a storage rack and some other scientific equipment. 
+
+[[Leave ->explore ship]] 
+
+
+:: enter the town {"position":"1100,1600","size":"100,100"}
+When you finally get to the town, the smaller sun has sunk below the horizon and it is significantly darker. There are lamps lining the streets lighting the way. You don't see anyone in the streets here, but you know that, logically, the town square has to be farther in.
+
+[[Continue down the street ->main street]]
+
+
+:: explain {"position":"1850,2025","size":"100,100"}
+
+
+
+:: explore ship {"position":"525,300","size":"100,100"}
+You exit the cockpit and find a hallway with four doors.
+
+[[Enter the first door on the left ->first left door]]
+[[Enter the first door on the right ->first right door]]
+[[Enter the second door on the left ->second left door]]
+[[Enter the second door on the right ->second right door]]
+[[go to the end of the hallway ->end of hallway]]
+[[Go back to the cockpit ->cockpit]]
+
+
+:: field {"position":"1000,1475","size":"100,100"}
+You walk away from your ship and the tree line, and as you crest the hill, you see far off in the distance the dot of a town on the horizon. 
+
+[[Go to the town ->enter the town]]
+[[Head back to the ship ->outside]]
+
+
+:: first left door {"position":"700,200","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members.
+
+[[search the bunks ->search left bunks]]
+[[Go back to the hallway ->explore ship]]
+
+
+:: first left door crashed {"position":"800,900","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members. The room looks significantly worse.
+
+[[search the bunks ->search left bunks(crashed)]]
+[[Go back to the hallway ->crashed ship]]
+
+
+:: first right door {"position":"700,400","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members.
+
+[[search the bunks ->search right bunks]]
+[[Go back to the hallway ->explore ship]]
+
+
+:: first right door crashed {"position":"800,1100","size":"100,100"}
+You enter the first door on the left. There are two bunks for crew members. The room looks significantly worse.
+
+[[search the bunks ->search right bunks(crashed)]]
+[[Go back to the hallway ->crashed ship]]
+
+
+:: fly ship {"position":"325,450","size":"100,100"}
+You sit down in the captain's chair and turn everything on. The ship burns the rest of the fuel and shuts off. A light on the consol says you still have maneuverability. You continue to float, now in the direction the ship had been going. As you float along, you notice a planet below you.
+
+[[Try to land on the planet below ->land ship]]
+[[Enter orbit ->orbit]]
+
+
+:: inn {"position":"1225,2025","size":"100,100"}
+You enter the building with what looks like a bed on the sign. Behind the counter, you see a reptilian humanoid with large ridges on its head reading a book. There's a bell of some sort above the door that jingles when you walk in, and the alien looks up to greet you.
+
+[[contine ->inn continued]]
+
+
+:: inn continued {"position":"1400,2025","size":"100,100"}
+The alien startles when it sees you, and starts talking. It takes a minute for your translator to collect enough data for you to understand what the alien is saying. When it finally does, you ask it to repeat itself. It starts talking again and your translator chimes in, "Hello. What can I do for you?"
+
+If body language is universal, then you can tell that the alien is trying to remain professional, but is very confused by you.
+
+[[I'd like to stay the night ->stay the night]]
+[[Ask for directions ->directions]]
+[[Explain your situation ->explain]]
+
+
+:: land ship {"position":"500,650","size":"100,100"}
+You use the maneuvering thrusters to push yourself down through the planet's atmosphere. Your boosters are just powerful enough to slow your descent enough to keep you from dying on impact. In fact, you're doing quite well, but the ship doesn't seem to be doing as well.
+
+Looking at the console, there are lights flashing that weren't before, each indicating something that has gone wrong during the landing.
+
+[[Go outside ->airlock]]
+[[Check the air outside ->check air]]
+[[Explore the ship ->crashed ship]]
+
+
+:: leave {"position":"1550,2300","size":"100,100"}
+
+
+
+:: leave(directions) {"position":"1500,1800","size":"100,100"}
+You thank the clerk and exit the building.
+
+[[Continue ->main street]] 
+
+
+:: main street {"position":"1100,1725","size":"100,100"}
+You walk down the street and see a few shops open. The signs are all written in an alien language, but from what you can see through the windows, there doesn't seem to be much difference between these and shops you might find back on Earth.
+
+(if:(history: where its name contains "directions")'s length is 0)[
+[[Enter the first shop on the right ->resteraunt]]
+[[Enter the first shop on the left ->tech shop]]
+[[Enter the second shop on the right ->craft store]]
+[[Enter the second shop on the left ->inn]]
+]
+(if:(history: where its name contains "directions")'s length >= 1)[
+[[Enter the resteraunt ->resteraunt]] 
+[[Enter the tech shop ->tech shop]] 
+[[Enter the craft store ->craft store]] 
+[[Enter the inn ->inn]]
+]
+
+[[Keep going ->town square]]
+
+
+:: orbit {"position":"275,650","size":"100,100"}
+You use the maneuvering thrusters to enter orbit around the planet. You're in a steady orbit now, but it's decaying slowly. You won't be able to keep this up forever. 
+
+[[Try to land on the planet ->land ship]] 
+[[Stay in orbit]]
+
+
+:: outside {"position":"300,1000","size":"100,100"}
+(if:(history: where its name contains "check air")'s length is 0)[It's your lucky day!]
+You step outside and feel a cool breeze on your face. There are two stars in the sky, and based on their position you can guess it's about halfway through the planetary day. There's a tree line not too far away from where you crashed, and in the opposite direction is a field of grass.
+
+[[Go to the treeline ->tree line]]
+[[Go to the field ->field]]
+[[Go back to your ship ->land ship]]
+
+
+:: resteraunt {"position":"950,1875","size":"100,100"}
+
+
+
+:: search cabinets {"position":"800,100","size":"100,100"}
+There are various other foodstuffs in most of the cabinets, most of which are clearly non-perishables strapped down for a long trip. A couple cabinets are dedicated to plates and cups. There's silverware and other utensils in the drawers below.
+
+[[Leave ->explore ship]] 
+
+
+:: search cabinets(crashed) {"position":"900,800","size":"100,100"}
+Most of the cabinets stand open, but luckily most of their contents remain in place and in tact. Some rattled loose though, and there are bits of stuff lying on the floor and counters.
+
+[[Leave ->crashed ship]] 
+
+
+:: search left bunks {"position":"700,100","size":"100,100"}
+There are two bunks for crew members. Each have personal affects on the table next to them. There is a bookshelf above the right bunk. The left bunk has a colourful blanket on top of the matress. Both beds are made neatly.
+
+[[Leave ->explore ship]] 
+
+
+:: search left bunks(crashed) {"position":"800,800","size":"100,100"}
+There are two bunks for crew members. Each have personal affects on the table next to them. Books have been thrown on the bed and floor from the impact. The blanket has been jostled around, but managed to hang onto the bed. Neither bed looks as neat as it did before.
+
+[[Leave ->crashed ship]] 
+
+
+:: search right bunks {"position":"700,500","size":"100,100"}
+There are two bunks for crew members. Each have personal affects on the table next to them. There is a painting on the wall above the left bunk made by the crew member that sleeps there. There are family pictures on the wall and nightstand next to the right bunk.
+
+[[Leave ->explore ship]] 
+
+
+:: search right bunks(crashed) {"position":"800,1200","size":"100,100"}
+There are two bunks for crew members. Each have personal affects on the table next to them. The painting is laying face down on the bed below. Some of the pictures have fallen off the wall or been knocked over.
+
+[[Leave ->crashed ship]] 
+
+
+:: second left door {"position":"800,200","size":"100,100"}
+You enter the second door on the left. There is a kitchen and dining area for the crew. The table has a couple plates sitting on top, and there are a few utensils on the counter.
+
+[[Look through the cabinets ->search cabinets]]
+[[Go back to the hallway ->explore ship]]
+
+
+:: second left door crashed {"position":"900,900","size":"100,100"}
+You enter the second door on the left. There is a kitchen and dining area for the crew. The plates lay shattered on the floor, as do the utensils.
+
+[[Look through the cabinets ->search cabinets(crashed)]]
+[[Go back to the hallway ->crashed ship]]
+
+
+:: second right door {"position":"800,400","size":"100,100"}
+This room is small and dark, and cluttered with boxes and bags, presumable holding other necessary eqiupment and replacement parts. 
+
+[[Go back to the hallway ->explore ship]]
+
+
+:: second right door crashed {"position":"900,1100","size":"100,100"}
+The storage room remains largely unchanged, if a little more chaotic.
+
+[[Leave ->crashed ship]] 
+
+
+:: stay the night {"position":"1550,2025","size":"100,100"}
+You tell the alien that you want to spend the night, and it just stares back at you blankly. After a moment of confusion, you press a button on your translator, and speak again. The alien looks at the translator, then back up at you, and grabs something to write with.
+
+The robotic voice of your translator says that spending the night will cost 10 of their currency.
+
+[[Try to convince the clerk to let you stay anyway ->convince]]
+[[Admit defeat and leave ->leave]]
+
+
+:: tech shop {"position":"1225,1875","size":"100,100"}
+
+
+
+:: town square {"position":"1100,2175","size":"100,100"}
+
+
+
+:: tree line {"position":"400,1500","size":"100,100"}
+
